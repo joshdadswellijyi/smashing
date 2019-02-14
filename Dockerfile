@@ -1,9 +1,9 @@
-FROM ruby:2.5.3-alpine3.8
+FROM ruby:2.6.1-alpine3.9
 
-LABEL maintainer "Ramón G. Camus <rgcamus@gmail.com>"
+LABEL maintainer "Nick <nbadger@mintel.com>"
 
 RUN apk update && apk upgrade \
-    && apk add tzdata curl wget bash \
+    && apk add tzdata curl curl-dev libcurl wget bash \
     && apk add ruby ruby-bundler nodejs
 
 # Needed to make native extensions

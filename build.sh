@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -e
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
-#echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 for docker_arch in amd64 arm32v6 arm64v8; do
     case ${docker_arch} in

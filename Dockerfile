@@ -1,4 +1,7 @@
-FROM ruby:2.6.1-alpine3.9
+ARG docker_arch=amd64
+FROM ${docker_arch}/ruby:2.6.1-alpine3.9
+ARG qemu_arch="./qemu-x86_64-static"
+COPY ${qemu_arch} /usr/bin/
 
 LABEL maintainer "Nick <nbadger@mintel.com>"
 

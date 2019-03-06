@@ -1,0 +1,14 @@
+sudo: required
+services:
+- docker
+language: bash
+
+before_install:
+- curl https://get.docker.com | sh
+- mkdir -p ~/.docker
+- |
+  echo '{ "experimental": "enabled" }' > ~/.docker/config.json
+- docker version
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+script:
+- build.sh

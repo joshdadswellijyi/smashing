@@ -12,9 +12,9 @@ for docker_arch in amd64 arm32v6 arm64v8; do
     tar -xvf x86_64_qemu-${qemu_arch}-static.tar.gz
 
     docker build \
-      -f Dockerfile \
+      -f Dockerfile.multi \
       --build-arg docker_arch=${docker_arch} \
       --build-arg qemu_arch=./qemu-${qemu_arch}-static \
       -t mintel/smashing:${docker_arch}-latest \
-      .    
+      .
 done
